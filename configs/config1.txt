@@ -1,3 +1,33 @@
-x_coefficient 3
-y_coefficient 5
-color 0.4
+FRACTAL RENDER CONFIG
+
+### USER INPUT HERE: fill table cells (blank cell = 0)
+(note: color must be within interval [0,1])
+
+| transforms | weight | color | x1 | x2 | x3 | y1 | y2 | y3 |
+|------------|--------|-------|----|----|----|----|----|----|
+|     T1     |  0.1   |  0.5  |  1 |    |    |    |  3 |  1 |
+|     T2     |  0.3   |  0.6  |  3 |  3 |  4 |    | 0.5|    |
+|     T3     |  0.45  |  0.1  |  7 |  3 |  1 |  2 |    |    |
+|     T4     |  0.55  |  0.3  |  4 |  4 |    |  1 |    |  6 |
+|     T5     |  0.2   |  0.4  |  3 |  2 |  7 |  5 |  4 |  1 |
+
+
+Definitions
+
+affine equation:  x' = x1*x + x2*y + x3
+                  y' = y1*x + y2*y + y3
+
+variation equations: 
+    linear      (x', y') = (x, y)
+    sinusoidal  (x', y') = (sin x, sin y)
+    spherical   (x', y') = (x, y) / r^2
+    swirl       (x', y') = (x sin r^2 - y cos r^2, x cos r^2 + y sin r^2)
+(note: r^2 = x^2 + y^2)
+
+### USER INPUT HERE: (optional) add transforms or change the variation after -->
+transforms:
+    T1  affine --> linear
+    T2  affine --> sinusoidal
+    T3  affine --> sinusoidal
+    T4  affine --> spherical
+    T5  affine --> swirl
